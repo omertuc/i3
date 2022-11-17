@@ -692,6 +692,16 @@ Default is +left+
 title_align left|center|right
 ---------------------------------------------
 
+=== Maximum window length
+
+This option determines the maximum length for a window. If 0, there's no maximum.
+Default is +0+
+
+*Syntax*:
+---------------------------------------------
+maximum_width <px>
+---------------------------------------------
+
 [[default_border]]
 === Default border style for new windows
 

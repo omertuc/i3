@@ -116,6 +116,15 @@ void render_con(Con *con) {
             assert(params.children > 0);
 
             if (con->layout == L_SPLITH || con->layout == L_SPLITV) {
+                if (con->layout == L_SPLITH) {
+                    int size_sum = 0;
+                    for (int j = 0; j < params.children; j++)
+                        size_sum += params.sizes[j];
+
+                    if (size_sum < params.rect.width) {
+                        params.x += (params.rect.width - size_sum) / 2;
+                    }
+                }
                 render_con_split(con, child, &params, i);
             } else if (con->layout == L_STACKED) {
                 render_con_stacked(con, child, &params, i);
@@ -183,6 +192,12 @@ static int *precalculate_sizes(Con *con, render_params *p) {
         for (i = 0; i < p->children && assigned != total; ++i) {
             sizes[i] += signal;
             assigned += signal;
+        }
+    }
+
+    for (int i = 0; i < p->children; ++i) {
+        if (config.maximum_width != 0) {
+            sizes[i] = MIN(sizes[i], config.maximum_width);
         }
     }
 

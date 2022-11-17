@@ -540,6 +540,7 @@ my $expected_all_tokens = "ERROR: CONFIG: Expected one of these tokens: <end>, '
         force_display_urgency_hint
         focus_on_window_activation
         title_align
+        maximum_width
         show_marks
         workspace
         ipc_socket

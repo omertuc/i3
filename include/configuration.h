@@ -217,6 +217,9 @@ struct Config {
         ALIGN_RIGHT
     } title_align;
 
+    /** The maximum window width allowed for a single window. */
+    int maximum_width;
+
     /** The default border style for new windows. */
     border_style_t default_border;
 

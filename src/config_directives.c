@@ -688,6 +688,10 @@ CFGFUN(bar_tray_padding, const long padding_px) {
     current_bar->tray_padding = padding_px;
 }
 
+CFGFUN(maximum_width_px, const long maximum_width_px) {
+    config.maximum_width = maximum_width_px;
+}
+
 CFGFUN(bar_color_single, const char *colorclass, const char *color) {
     if (strcmp(colorclass, "background") == 0)
         current_bar->colors.background = sstrdup(color);
